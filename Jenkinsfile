@@ -1,6 +1,3 @@
-pipeline {
-    agent any
-
     stages {
 
         stage('Install Dependencies') {
@@ -18,7 +15,10 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '*.html, *.xml', fingerprint: true
+            robot outputPath: '.', 
+                  outputFileName: 'output.xml',
+                  reportFileName: 'report.html',
+                  logFileName: 'log.html'
         }
     }
 }
