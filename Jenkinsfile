@@ -1,3 +1,6 @@
+pipeline {
+    agent any
+
     stages {
 
         stage('Install Dependencies') {
@@ -15,7 +18,7 @@
 
     post {
         always {
-            robot outputPath: '.', 
+            robot outputPath: '.',
                   outputFileName: 'output.xml',
                   reportFileName: 'report.html',
                   logFileName: 'log.html'
